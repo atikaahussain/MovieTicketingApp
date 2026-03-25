@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     android:orientation="vertical">
 
@@ -85,281 +86,295 @@
 <!--    </LinearLayout>-->
 
 
-    <!-- Movies List Container -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+<!--    &lt;!&ndash; Movies List Container &ndash;&gt;-->
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fillViewport="true">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="16dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:paddingBottom="16dp">-->
 
-            <!-- Movie 1: The Dark Knight -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/card_dark_knight"
-                android:padding="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp">
+<!--            &lt;!&ndash; Movie 1: The Dark Knight &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@color/card_dark_knight"-->
+<!--                android:padding="16dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="12dp">-->
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/movie_poster_1"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="The Dark Knight Poster"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/movie_dark_knight"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Action / 152 min"
-                        android:textSize="12sp"
-                        android:textColor="@color/light_gray"
-                        android:layout_marginTop="4dp"/>
-
-                    <ImageView
-                        android:id="@+id/btnTrailer1"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_media_play"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Play Trailer"/>
-                </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:src="@drawable/movie_poster_1"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:contentDescription="The Dark Knight Poster"/>-->
 
 <!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_width="0dp"-->
 <!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="8dp">-->
 
-                    <Button
-                        android:id="@+id/btnBookSeats1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:text="@string/book_seats"
-                        android:textSize="12sp"
-                        android:backgroundTint="@color/red"
-                        android:textColor="@color/white"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/movie_dark_knight"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Action / 152 min"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textColor="@color/light_gray"-->
+<!--                        android:layout_marginTop="4dp"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnTrailer1"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:src="@android:drawable/ic_media_play"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:contentDescription="Play Trailer"/>-->
+<!--                </LinearLayout>-->
+
+<!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:orientation="vertical">&ndash;&gt;-->
 
 <!--                    <Button-->
-<!--                        android:id="@+id/btnTrailer1"-->
+<!--                        android:id="@+id/btnBookSeats1"-->
 <!--                        android:layout_width="wrap_content"-->
 <!--                        android:layout_height="40dp"-->
 <!--                        android:text="@string/book_seats"-->
 <!--                        android:textSize="12sp"-->
 <!--                        android:backgroundTint="@color/red"-->
 <!--                        android:textColor="@color/white"/>-->
+
+<!--&lt;!&ndash;                    <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:id="@+id/btnTrailer1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="40dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:text="@string/book_seats"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:textSize="12sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:backgroundTint="@color/red"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:textColor="@color/white"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Movie 2: Inception &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@color/card_dark_knight"-->
+<!--                android:padding="16dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="12dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:src="@drawable/movie_poster_2"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:contentDescription="Inception Poster"/>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="8dp">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/movie_inception"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Sci-Fi / 148 min"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textColor="@color/light_gray"-->
+<!--                        android:layout_marginTop="4dp"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnTrailer2"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:src="@android:drawable/ic_media_play"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:contentDescription="Play Trailer"/>-->
 <!--                </LinearLayout>-->
 
+<!--                <Button-->
+<!--                    android:id="@+id/btnBookSeats2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:text="@string/book_seats"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:backgroundTint="@color/red"-->
+<!--                    android:textColor="@color/white"/>-->
+<!--            </LinearLayout>-->
 
+<!--            &lt;!&ndash; Movie 3: Interstellar &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@color/card_dark_knight"-->
+<!--                android:padding="16dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="12dp">-->
 
-            </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:src="@drawable/movie_poster_3"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:contentDescription="Interstellar Poster"/>-->
 
-            <!-- Movie 2: Inception -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/card_dark_knight"
-                android:padding="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="8dp">-->
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/movie_poster_2"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Inception Poster"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/movie_interstellar"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"/>-->
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp">
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Sci-Fi / 169 min"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textColor="@color/light_gray"-->
+<!--                        android:layout_marginTop="4dp"/>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/movie_inception"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnTrailer3"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:src="@android:drawable/ic_media_play"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:contentDescription="Play Trailer"/>-->
+<!--                </LinearLayout>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sci-Fi / 148 min"
-                        android:textSize="12sp"
-                        android:textColor="@color/light_gray"
-                        android:layout_marginTop="4dp"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btnBookSeats3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:text="@string/book_seats"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:backgroundTint="@color/red"-->
+<!--                    android:textColor="@color/white"/>-->
+<!--            </LinearLayout>-->
 
-                    <ImageView
-                        android:id="@+id/btnTrailer2"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_media_play"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Play Trailer"/>
-                </LinearLayout>
+<!--            &lt;!&ndash; Movie 4: The Shawshank Redemption &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@color/card_dark_knight"-->
+<!--                android:padding="16dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="12dp">-->
 
-                <Button
-                    android:id="@+id/btnBookSeats2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="@string/book_seats"
-                    android:textSize="12sp"
-                    android:backgroundTint="@color/red"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:src="@drawable/movie_poster_4"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:contentDescription="The Shawshank Redemption Poster"/>-->
 
-            <!-- Movie 3: Interstellar -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/card_dark_knight"
-                android:padding="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="8dp">-->
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/movie_poster_3"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Interstellar Poster"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/movie_shawshank"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"/>-->
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp">
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Drama / 142 min"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textColor="@color/light_gray"-->
+<!--                        android:layout_marginTop="4dp"/>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/movie_interstellar"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnTrailer4"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:src="@android:drawable/ic_media_play"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:contentDescription="Play Trailer"/>-->
+<!--                </LinearLayout>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sci-Fi / 169 min"
-                        android:textSize="12sp"
-                        android:textColor="@color/light_gray"
-                        android:layout_marginTop="4dp"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btnBookSeats4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:text="@string/book_seats"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:backgroundTint="@color/red"-->
+<!--                    android:textColor="@color/white"/>-->
+<!--            </LinearLayout>-->
 
-                    <ImageView
-                        android:id="@+id/btnTrailer3"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_media_play"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Play Trailer"/>
-                </LinearLayout>
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
 
-                <Button
-                    android:id="@+id/btnBookSeats3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="@string/book_seats"
-                    android:textSize="12sp"
-                    android:backgroundTint="@color/red"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:tabIndicatorColor="@color/red"
+        app:tabTextColor="@color/light_gray"
+        app:tabSelectedTextColor="@color/white"/>
 
-            <!-- Movie 4: The Shawshank Redemption -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/card_dark_knight"
-                android:padding="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/movie_poster_4"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="The Shawshank Redemption Poster"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/movie_shawshank"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Drama / 142 min"
-                        android:textSize="12sp"
-                        android:textColor="@color/light_gray"
-                        android:layout_marginTop="4dp"/>
-
-                    <ImageView
-                        android:id="@+id/btnTrailer4"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_media_play"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Play Trailer"/>
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnBookSeats4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="@string/book_seats"
-                    android:textSize="12sp"
-                    android:backgroundTint="@color/red"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

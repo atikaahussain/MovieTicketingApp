@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+import androidx.viewpager2.widget.ViewPager2;
 
 public class HomeFragment extends Fragment {
 
@@ -27,11 +30,24 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+//        setupMovieButtons(view);
+//        setupTrailerButtons(view);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        setupMovieButtons(view);
-        setupTrailerButtons(view);
+        TabLayout tabLayout = view.findViewById(R.id.tabLayout);
+        ViewPager2 viewPager = view.findViewById(R.id.viewPager);
+
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    if (position == 0) {
+                        tab.setText("Now Showing");
+                    } else {
+                        tab.setText("Coming Soon");
+                    }
+                }).attach();
 
         return view;
     }
