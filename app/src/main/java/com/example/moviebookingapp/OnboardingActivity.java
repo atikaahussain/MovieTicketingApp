@@ -23,7 +23,7 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void moveToHome() {
-        startActivity(new Intent(OnboardingActivity.this, HomeActivity.class));
+        startActivity(new Intent(OnboardingActivity.this, MainActivity.class));
         finish();
     }
 
