@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class NowShowingFragment extends Fragment {
+public class NowShowingFragment extends Fragment implements OnMovieClickListener {
 
     RecyclerView recyclerView;
     ArrayList<Movie> movieList;
@@ -32,9 +32,26 @@ public class NowShowingFragment extends Fragment {
         movieList.add(new Movie("Inception", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=YoHD9XEInc0"));
         movieList.add(new Movie("Interstellar", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=zSWdZVtXT7E"));
 
-        MovieAdapter adapter = new MovieAdapter(getContext(), movieList);
+        MovieAdapter adapter = new MovieAdapter(getContext(), movieList, "NOW_SHOWING", this);
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onBookSeatsClick(Movie movie, String movieType) {
+        // Create the SeatSelectionFragment
+        SeatSelectionFragment fragment = SeatSelectionFragment.newInstance(
+                movie.getName(),
+                movieType,
+                movie.getTrailerUrl()
+        );
+
+        // Navigate to SeatSelectionFragment
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

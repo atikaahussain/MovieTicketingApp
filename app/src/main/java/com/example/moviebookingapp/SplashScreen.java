@@ -40,7 +40,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             startActivity(new Intent(SplashScreen.this, OnboardingActivity.class));
             finish();
-        }, 5000);
+        }, 1000);
     }
     private void applyAnimation() {
         ivLogo.setAnimation(logoAnimation);

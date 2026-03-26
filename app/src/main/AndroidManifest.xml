@@ -33,15 +33,15 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+<!--        <activity-->
+<!--            android:name=".HomeActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.AppCompat.NoActionBar"/>-->
 
-        <activity
-            android:name=".SeatSelectionActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+<!--        <activity-->
+<!--            android:name=".SeatSelectionActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.AppCompat.NoActionBar"/>-->
 
         <activity
             android:name=".SnacksActivity"

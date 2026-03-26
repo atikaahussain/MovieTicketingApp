@@ -17,10 +17,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     private Context context;
     private ArrayList<Movie> movieList;
+    private String movieType;  // ✅ Add this
+    private OnMovieClickListener listener;
 
-    public MovieAdapter(Context context, ArrayList<Movie> movieList) {
+    public MovieAdapter(Context context, ArrayList<Movie> movieList, String movieType, OnMovieClickListener listener) {
         this.context = context;
         this.movieList = movieList;
+        this.movieType = movieType;
+        this.listener = listener;
     }
 
 
@@ -46,11 +50,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
             context.startActivity(intent);
         });
 
-        // Book button
         holder.btnBook.setOnClickListener(v -> {
-            Intent intent = new Intent(context, SeatSelectionActivity.class);
-            intent.putExtra("MOVIE_NAME", movie.getName());
-            context.startActivity(intent);
+            if (listener != null) {
+                listener.onBookSeatsClick(movie, movieType);
+            }
         });
     }
 

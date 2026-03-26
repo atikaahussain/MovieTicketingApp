@@ -116,6 +116,25 @@
                     <View
                         android:layout_width="16dp"
                         android:layout_height="16dp"
+                        android:background="@color/seat_disabled"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disabled"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginEnd="16dp">
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:background="@color/seat_booked"
                         android:layout_marginEnd="4dp"/>
 
@@ -126,6 +145,7 @@
                         android:textColor="@color/white"
                         android:textSize="15sp"/>
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -224,6 +244,33 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:text="@string/proceed_to_snacks"
+                android:textSize="14sp"
+                android:backgroundTint="@color/red"
+                android:textColor="@color/white"
+                android:enabled="false"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnComingSoon"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/coming_soon"
+                android:textSize="14sp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnWatchTrailer"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/watch_trailer"
                 android:textSize="14sp"
                 android:backgroundTint="@color/red"
                 android:textColor="@color/white"
