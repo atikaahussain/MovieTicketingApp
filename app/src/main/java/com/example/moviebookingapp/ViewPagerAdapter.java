@@ -4,9 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.moviebookingapp.ComingSoonFragment;
-import com.example.moviebookingapp.NowShowingFragment;
-
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
     public ViewPagerAdapter(@NonNull Fragment fragment) {

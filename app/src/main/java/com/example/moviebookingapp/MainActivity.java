@@ -3,7 +3,6 @@ package com.example.moviebookingapp;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -11,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Load HomeFragment
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
