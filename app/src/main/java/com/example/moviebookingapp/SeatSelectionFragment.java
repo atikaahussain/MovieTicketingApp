@@ -150,11 +150,19 @@ public class SeatSelectionFragment extends Fragment {
     }
 
     private void proceedToSnacks() {
-        Intent intent = new Intent(getActivity(), SnacksActivity.class);
-        intent.putExtra("MOVIE_NAME", movieName);
-        intent.putExtra("SEAT_COUNT", selectedSeats.size());
-        intent.putExtra("TICKET_TOTAL", selectedSeats.size() * SEAT_PRICE);
-        startActivity(intent);
+        SnacksFragment snacksFragment = new SnacksFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("MOVIE_NAME", movieName);
+        bundle.putInt("SEAT_COUNT", selectedSeats.size());
+        bundle.putDouble("TICKET_TOTAL", selectedSeats.size() * SEAT_PRICE);
+        snacksFragment.setArguments(bundle);
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, snacksFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void bookSeatsDirectly() {

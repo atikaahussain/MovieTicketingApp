@@ -43,10 +43,10 @@
 <!--            android:exported="false"-->
 <!--            android:theme="@style/Theme.AppCompat.NoActionBar"/>-->
 
-        <activity
-            android:name=".SnacksActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+<!--        <activity-->
+<!--            android:name=".SnacksActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.AppCompat.NoActionBar"/>-->
 
         <activity
             android:name=".TicketSummaryActivity"
