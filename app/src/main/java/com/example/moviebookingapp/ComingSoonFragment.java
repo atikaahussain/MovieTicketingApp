@@ -25,18 +25,16 @@ public class ComingSoonFragment extends Fragment implements OnMovieClickListener
 
         movieList = new ArrayList<>();
 
-        movieList.add(new Movie("Avengers: Secret Wars", "Action", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=example1"));
-        movieList.add(new Movie("Deadpool 3", "Action/Comedy", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=example2"));
+        movieList.add(new Movie("Avengers: Secret Wars", "Action", R.drawable.movie_poster_4, "https://www.youtube.com/watch?v=example1"));
+        movieList.add(new Movie("Deadpool 3", "Action/Comedy", R.drawable.movie_poster_2, "https://www.youtube.com/watch?v=example2"));
         movieList.add(new Movie("Dune Part 3", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=example3"));
 
-        // ✅ Pass "COMING_SOON" and "this"
         MovieAdapter adapter = new MovieAdapter(getContext(), movieList, "COMING_SOON", this);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    // ✅ Implement the interface method
     @Override
     public void onBookSeatsClick(Movie movie, String movieType) {
         // Create the SeatSelectionFragment
@@ -46,7 +44,6 @@ public class ComingSoonFragment extends Fragment implements OnMovieClickListener
                 movie.getTrailerUrl()
         );
 
-        // Navigate to SeatSelectionFragment
         requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)

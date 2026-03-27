@@ -29,8 +29,8 @@ public class NowShowingFragment extends Fragment implements OnMovieClickListener
         movieList = new ArrayList<>();
 
         movieList.add(new Movie("Dark Knight", "Action", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=EXeTwQWrcwY"));
-        movieList.add(new Movie("Inception", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=YoHD9XEInc0"));
-        movieList.add(new Movie("Interstellar", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=zSWdZVtXT7E"));
+        movieList.add(new Movie("Inception", "Sci-Fi", R.drawable.movie_poster_2, "https://www.youtube.com/watch?v=YoHD9XEInc0"));
+        movieList.add(new Movie("Interstellar", "Sci-Fi", R.drawable.movie_poster_3, "https://www.youtube.com/watch?v=zSWdZVtXT7E"));
 
         MovieAdapter adapter = new MovieAdapter(getContext(), movieList, "NOW_SHOWING", this);
         recyclerView.setAdapter(adapter);

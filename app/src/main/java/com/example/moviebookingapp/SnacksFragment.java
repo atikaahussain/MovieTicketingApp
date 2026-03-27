@@ -99,12 +99,18 @@ public class SnacksFragment extends Fragment {
             }
         }
 
-        Intent i = new Intent(getActivity(), TicketSummaryActivity.class);
-        i.putExtra("MOVIE_NAME", movieName);
-        i.putExtra("SEAT_COUNT", seatCount);
-        i.putExtra("TICKET_TOTAL", ticketTotal);
-        i.putExtra("SNACKS_TOTAL", snacksTotal);
-        i.putExtra("SNACKS_DETAILS", snacksDetails.toString());
-        startActivity(i);
+        // Navigate to TicketSummaryFragment
+        TicketSummaryFragment ticketSummaryFragment = TicketSummaryFragment.newInstance(
+                movieName,
+                seatCount,
+                ticketTotal,
+                snacksTotal,
+                snacksDetails.toString()
+        );
+
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, ticketSummaryFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

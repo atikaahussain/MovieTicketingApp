@@ -34,10 +34,8 @@ public class SeatSelectionFragment extends Fragment {
     String trailerUrl;
 
     public SeatSelectionFragment() {
-        // Required empty constructor
     }
 
-    // Factory method to create fragment with arguments
     public static SeatSelectionFragment newInstance(String movieName, String movieType, String trailerUrl) {
         SeatSelectionFragment fragment = new SeatSelectionFragment();
         Bundle args = new Bundle();
@@ -51,13 +49,13 @@ public class SeatSelectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_seat_selection, container, false);
+        View view = inflater.inflate(R.layout.fragment_seat_selection, container, false);
 
         init(view);
         setBookedSeats();
         loadMovieData();
 
-        // Check movie type and setup UI accordingly
+        // Check movie type and set ui
         if ("COMING_SOON".equals(movieType)) {
             setupComingSoonUI();
             createSeatGrid();
@@ -163,17 +161,26 @@ public class SeatSelectionFragment extends Fragment {
                 .replace(R.id.fragment_container, snacksFragment)
                 .addToBackStack(null)
                 .commit();
+
+
+
+    }
+    private void bookSeatsDirectly() {
+        TicketSummaryFragment summaryFragment = TicketSummaryFragment.newInstance(
+                movieName,
+                selectedSeats.size(),
+                selectedSeats.size() * SEAT_PRICE,
+                0.0,
+                ""
+        );
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, summaryFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    private void bookSeatsDirectly() {
-        Intent intent = new Intent(getActivity(), TicketSummaryActivity.class);
-        intent.putExtra("MOVIE_NAME", movieName);
-        intent.putExtra("SEAT_COUNT", selectedSeats.size());
-        intent.putExtra("TICKET_TOTAL", selectedSeats.size() * SEAT_PRICE);
-        intent.putExtra("SNACKS_TOTAL", 0.0);
-        intent.putExtra("SNACKS_DETAILS", "");
-        startActivity(intent);
-    }
 
     private void createSeatGrid() {
         int seatNumber = 0;
