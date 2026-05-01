@@ -24,14 +24,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. Mandatory Toast for Assignment 3
         Toast.makeText(this, "Welcome to Cine FAST", Toast.LENGTH_SHORT).show();
 
-        // 2. Setup Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // 3. Setup Drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -41,21 +38,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // 4. Default Fragment (Home)
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-        // Add this inside your onCreate method in MainActivity.java
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
                 } else {
-                    // This allows the app to actually close/go back if drawer is already shut
                     setEnabled(false);
                     getOnBackPressedDispatcher().onBackPressed();
                 }
@@ -84,11 +78,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void logout() {
-        // Clear session from SharedPreferences
         SharedPreferences pref = getSharedPreferences("cinefast_session_pref_v3", MODE_PRIVATE);
         pref.edit().clear().apply();
 
-        // Redirect to Login
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

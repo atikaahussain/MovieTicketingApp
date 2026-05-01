@@ -32,16 +32,18 @@ public class SeatSelectionFragment extends Fragment {
     String movieName;
     String movieType;
     String trailerUrl;
+    String movieDate;
 
     public SeatSelectionFragment() {
     }
 
-    public static SeatSelectionFragment newInstance(String movieName, String movieType, String trailerUrl) {
+    public static SeatSelectionFragment newInstance(String movieName, String movieType, String trailerUrl, String movieDate) {
         SeatSelectionFragment fragment = new SeatSelectionFragment();
         Bundle args = new Bundle();
         args.putString("MOVIE_NAME", movieName);
         args.putString("MOVIE_TYPE", movieType);
         args.putString("TRAILER_URL", trailerUrl);
+        args.putString("MOVIE_DATE", movieDate);
         fragment.setArguments(args);
         return fragment;
     }
@@ -83,7 +85,7 @@ public class SeatSelectionFragment extends Fragment {
             movieName = getArguments().getString("MOVIE_NAME");
             movieType = getArguments().getString("MOVIE_TYPE");
             trailerUrl = getArguments().getString("TRAILER_URL");
-
+            this.movieDate = getArguments().getString("MOVIE_DATE");
             if (movieName != null) {
                 tvMovieName.setText(movieName);
             }
@@ -137,8 +139,6 @@ public class SeatSelectionFragment extends Fragment {
             } else {
                 if (!ensureLoggedIn()) return;
                 bookSeatsDirectly();
-                Toast.makeText(getContext(),
-                        "Booking Confirmed!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -165,6 +165,7 @@ public class SeatSelectionFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("MOVIE_NAME", movieName);
         bundle.putInt("SEAT_COUNT", selectedSeats.size());
+        bundle.putString("MOVIE_DATE", movieDate);
         bundle.putDouble("TICKET_TOTAL", selectedSeats.size() * SEAT_PRICE);
         snacksFragment.setArguments(bundle);
 
@@ -177,9 +178,12 @@ public class SeatSelectionFragment extends Fragment {
 
 
     }
+    // This now matches the newInstance in TicketSummaryFragment
     private void bookSeatsDirectly() {
+        // This now matches the newInstance in TicketSummaryFragment
         TicketSummaryFragment summaryFragment = TicketSummaryFragment.newInstance(
                 movieName,
+                movieDate,    // Added as 2nd argument
                 selectedSeats.size(),
                 selectedSeats.size() * SEAT_PRICE,
                 0.0,

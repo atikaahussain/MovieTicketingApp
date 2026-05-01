@@ -20,6 +20,7 @@ public class SnacksFragment extends Fragment {
     private ArrayList<Snack> snackList;
 
     private String movieName;
+    private String movieDate; // Add this
     private int seatCount;
     private double ticketTotal;
     private DatabaseHelper dbHelper;
@@ -39,6 +40,7 @@ public class SnacksFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             movieName = getArguments().getString("MOVIE_NAME");
+            movieDate = getArguments().getString("MOVIE_DATE");
             seatCount = getArguments().getInt("SEAT_COUNT", 0);
             ticketTotal = getArguments().getDouble("TICKET_TOTAL", 0.0);
         }
@@ -105,6 +107,7 @@ public class SnacksFragment extends Fragment {
         // Navigate to TicketSummaryFragment
         TicketSummaryFragment ticketSummaryFragment = TicketSummaryFragment.newInstance(
                 movieName,
+                movieDate,        // Added this as the 2nd argument
                 seatCount,
                 ticketTotal,
                 snacksTotal,

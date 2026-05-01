@@ -36,22 +36,18 @@ public class SplashScreen extends AppCompatActivity {
         applyAnimation();
         moveToOnboarding();
     }
-    // Update this method in your SplashScreen.java
     private void moveToOnboarding() {
         new Handler().postDelayed(() -> {
-            // Check Session Management
             android.content.SharedPreferences pref = getSharedPreferences("cinefast_session_pref_v3", MODE_PRIVATE);
             boolean isLoggedIn = pref.getBoolean("isLoggedIn", false);
 
             if (isLoggedIn) {
-                // If already logged in, skip Login and go to MainActivity
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
             } else {
-                // Otherwise, go to Onboarding as usual
                 startActivity(new Intent(SplashScreen.this, OnboardingActivity.class));
             }
             finish();
-        }, 5000); // Updated to 5 seconds as per Assignment 3 requirements
+        }, 5000);
     }
     private void applyAnimation() {
         ivLogo.setAnimation(logoAnimation);

@@ -4,13 +4,15 @@
       "name": "Dark Knight",
       "genre": "Action",
       "imageName": "movie_poster_1",
-      "trailerUrl": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+      "trailerUrl": "https://www.youtube.com/watch?v=EXeTwQWrcwY",
+      "date": "2026-05-15"
     },
     {
       "name": "Inception",
       "genre": "Sci-Fi",
       "imageName": "movie_poster_2",
-      "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+      "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+      "date": "2026-04-20"
     }
   ],
   "coming_soon": [
@@ -18,7 +20,8 @@
       "name": "Interstellar",
       "genre": "Sci-Fi",
       "imageName": "movie_poster_3",
-      "trailerUrl": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+      "trailerUrl": "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+      "date": "2026-06-01"
     }
   ]
 }

@@ -22,9 +22,7 @@ public class OnboardingActivity extends AppCompatActivity {
         btnGetStarted.setOnClickListener(view -> moveToHome());
     }
 
-    // Update this method in your OnboardingActivity.java
     private void moveToHome() {
-        // Reroute from MainActivity to LoginActivity
         startActivity(new Intent(OnboardingActivity.this, LoginActivity.class));
         finish();
     }

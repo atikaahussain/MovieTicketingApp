@@ -35,17 +35,20 @@ public class TicketSummaryFragment extends Fragment {
     private Button btnSendTicket;
 
     private String movieName;
+    private String movieDate;
     private int seatCount;
     private double ticketTotal;
     private double snacksTotal;
     private String snacksDetails;
 
-    public static TicketSummaryFragment newInstance(String movieName, int seatCount,double ticketTotal, double snacksTotal,String snacksDetails) {
+
+    public static TicketSummaryFragment newInstance(String movieName,String movieDate, int seatCount,double ticketTotal, double snacksTotal,String snacksDetails) {
 
         TicketSummaryFragment fragment = new TicketSummaryFragment();
 
         Bundle args = new Bundle();
         args.putString("MOVIE_NAME", movieName);
+        args.putString("MOVIE_DATE", movieDate);
         args.putInt("SEAT_COUNT", seatCount);
         args.putDouble("TICKET_TOTAL", ticketTotal);
         args.putDouble("SNACKS_TOTAL", snacksTotal);
@@ -59,6 +62,7 @@ public class TicketSummaryFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             movieName = getArguments().getString("MOVIE_NAME");
+            movieDate = getArguments().getString("MOVIE_DATE"); // Assigned to class variable
             seatCount = getArguments().getInt("SEAT_COUNT", 0);
             ticketTotal = getArguments().getDouble("TICKET_TOTAL", 0.0);
             snacksTotal = getArguments().getDouble("SNACKS_TOTAL", 0.0);
@@ -208,7 +212,7 @@ public class TicketSummaryFragment extends Fragment {
         ticketText.append("Movie: ").append(movieName).append("\n");
         ticketText.append("Seats: ").append(seatCount).append("\n");
         ticketText.append("Theater: Stars (90°Mall)\n");
-        ticketText.append("Date: 13.04.2025\n");
+        ticketText.append("Date: ").append(movieDate).append("\n"); // Using dynamic date
         ticketText.append("Time: 22:15\n\n");
         ticketText.append("Ticket Total: $").append(String.format("%.2f", ticketTotal)).append("\n");
 
@@ -261,40 +265,38 @@ public class TicketSummaryFragment extends Fragment {
 
     private void saveBookingToFirebase() {
 
-        // 1. Get current User
         com.google.firebase.auth.FirebaseUser user = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
 
-        // 2. CHECK IF NULL (This prevents the crash)
+        // a check if user is null
         if (user == null) {
             Toast.makeText(getContext(), "Error: User not logged in!", Toast.LENGTH_LONG).show();
             // Optional: Redirect to login activity here
             return;
         }
 
-        // 1. Get current User ID from Firebase Auth
+        // getting user id form auth
         String userId = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // 2. Get reference to "bookings/{userId}"
+        // to do this "bookings/{userId}/{bookingId}"
+        // get db reference of this -> bookings/{userId}
         com.google.firebase.database.DatabaseReference dbRef =
                 com.google.firebase.database.FirebaseDatabase.getInstance().getReference("bookings").child(userId);
 
-        // 3. Generate a unique bookingId using .push()
+        // then make this {bookingId}
         String bookingId = dbRef.push().getKey();
-
-        // 4. Create the timestamp
-        String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-                .format(Calendar.getInstance().getTime());
+        String showDate = getArguments() != null ? getArguments().getString("MOVIE_DATE", "2026-05-15") : "2026-05-15";
+//        String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+//                .format(Calendar.getInstance().getTime());
 
         double grandTotal = ticketTotal + snacksTotal;
 
-        // Create our Booking object
-        Booking newBooking = new Booking(bookingId, movieName, seatCount, grandTotal, currentTime);
-
-        // 5. Save to Firebase
+        //booking obj
+        Booking newBooking = new Booking(bookingId, movieName, seatCount, grandTotal, showDate);
+        //saving...
         if (bookingId != null) {
             dbRef.child(bookingId).setValue(newBooking)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(getContext(), "Booking Saved to Cloud!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Booking Done", Toast.LENGTH_SHORT).show();
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();

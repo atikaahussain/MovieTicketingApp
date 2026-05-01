@@ -36,18 +36,18 @@ public class ComingSoonFragment extends Fragment implements OnMovieClickListener
 //        movieList.add(new Movie("Avengers: Secret Wars", "Action", R.drawable.movie_poster_4, "https://www.youtube.com/watch?v=example1"));
 //        movieList.add(new Movie("Deadpool 3", "Action/Comedy", R.drawable.movie_poster_2, "https://www.youtube.com/watch?v=example2"));
 //        movieList.add(new Movie("Dune Part 3", "Sci-Fi", R.drawable.movie_poster_1, "https://www.youtube.com/watch?v=example3"));
-        movieList = loadMoviesFromJson("now_showing");
+        movieList = loadMoviesFromJson("coming_soon");
 
         MovieAdapter adapter = new MovieAdapter(getContext(), movieList, "COMING_SOON", this);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
-    // ✅ Helper method to parse the JSON file from assets
+    //helper method for jason parsing
     public ArrayList<Movie> loadMoviesFromJson(String category) {
         ArrayList<Movie> list = new ArrayList<>();
         try {
-            // Open the movies.json file from the assets folder
+            // Open the movies.json
             InputStream is = requireContext().getAssets().open("movies.json");
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -63,7 +63,7 @@ public class ComingSoonFragment extends Fragment implements OnMovieClickListener
 
             if (map != null && map.containsKey(category)) {
                 list = map.get(category);
-                // Convert string image names from JSON into drawable Resource IDs
+                // convert imgs string to drawable imgs
                 for (Movie m : list) {
                     m.convertImageNameToId(requireContext());
                 }
@@ -75,11 +75,11 @@ public class ComingSoonFragment extends Fragment implements OnMovieClickListener
     }
     @Override
     public void onBookSeatsClick(Movie movie, String movieType) {
-        // Create the SeatSelectionFragment
         SeatSelectionFragment fragment = SeatSelectionFragment.newInstance(
                 movie.getName(),
                 movieType,
-                movie.getTrailerUrl()
+                movie.getTrailerUrl(),
+                movie.getDate()
         );
 
         requireActivity().getSupportFragmentManager()

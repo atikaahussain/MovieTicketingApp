@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Initialize Views
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -44,13 +43,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // FIREBASE LOGIN
+        // FIREBASE
         com.google.firebase.auth.FirebaseAuth.getInstance()
                 .signInWithEmailAndPassword(email, pass)
                 .addOnSuccessListener(authResult -> {
-                    // Success: Now Firebase knows who is logged in!
 
-                    // You can keep SharedPreferences for UI/Session persistence if you want
                     SharedPreferences pref = getSharedPreferences("cinefast_session_pref_v3", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putBoolean("isLoggedIn", true);

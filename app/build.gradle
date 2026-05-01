@@ -37,11 +37,11 @@ dependencies {
     implementation libs.constraintlayout
 
 //    // Firebase Authentication (using your version catalog)
-//    implementation libs.firebase.auth
-//
-//    // Add Firebase Realtime Database
-//    implementation platform('com.google.firebase:firebase-bom:32.8.0')
-//    implementation 'com.google.firebase:firebase-database:20.3.0'
+    implementation libs.firebase.auth
+
+    // Add Firebase Realtime Database
+    implementation platform('com.google.firebase:firebase-bom:32.8.0')
+    implementation 'com.google.firebase:firebase-database:20.3.0'
 
     // Navigation Drawer & Fragments
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'

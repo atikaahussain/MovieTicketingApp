@@ -7,7 +7,7 @@ public class Booking {
     public double totalPrice;
     public String dateTime;
 
-    public Booking() {} // Required for Firebase
+    public Booking() {}
 
     public Booking(String bookingId, String movieName, int seatCount, double totalPrice, String dateTime) {
         this.bookingId = bookingId;

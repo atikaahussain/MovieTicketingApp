@@ -32,7 +32,6 @@ public class NowShowingFragment extends Fragment implements OnMovieClickListener
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // ✅ Task 4: Load movies from JSON instead of hardcoded list
         movieList = loadMoviesFromJson("now_showing");
 
         MovieAdapter adapter = new MovieAdapter(getContext(), movieList, "NOW_SHOWING", this);
@@ -40,12 +39,10 @@ public class NowShowingFragment extends Fragment implements OnMovieClickListener
 
         return view;
     }
-
-    // ✅ Helper method to parse the JSON file from assets
     public ArrayList<Movie> loadMoviesFromJson(String category) {
         ArrayList<Movie> list = new ArrayList<>();
         try {
-            // Open the movies.json file from the assets folder
+            // Open the movies.json
             InputStream is = requireContext().getAssets().open("movies.json");
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -61,7 +58,6 @@ public class NowShowingFragment extends Fragment implements OnMovieClickListener
 
             if (map != null && map.containsKey(category)) {
                 list = map.get(category);
-                // Convert string image names from JSON into drawable Resource IDs
                 for (Movie m : list) {
                     m.convertImageNameToId(requireContext());
                 }
@@ -77,7 +73,8 @@ public class NowShowingFragment extends Fragment implements OnMovieClickListener
         SeatSelectionFragment fragment = SeatSelectionFragment.newInstance(
                 movie.getName(),
                 movieType,
-                movie.getTrailerUrl()
+                movie.getTrailerUrl(),
+                movie.getDate()
         );
 
         requireActivity().getSupportFragmentManager()

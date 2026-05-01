@@ -41,7 +41,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         holder.tvDate.setText(booking.dateTime);
         holder.tvTickets.setText(booking.seatCount + " Tickets");
 
-        // Set the poster dynamically
+        // dynamic posters
         int posterResId = R.drawable.movie_poster_1;
         if (booking.movieName != null) {
             if (booking.movieName.equalsIgnoreCase("Inception")) {
@@ -61,12 +61,27 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         });
     }
 
+    // Inside BookingAdapter.java
     private boolean isFutureBooking(String dateStr) {
+        if (dateStr == null || dateStr.isEmpty()) return false;
+
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            // MATCH THIS to your JSON format exactly
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+            // This converts your string "2026-05-15" into a Date object
             Date bookingDate = sdf.parse(dateStr);
-            return bookingDate != null && bookingDate.after(new Date());
+
+            // This gets the current date/time on your Fedora system
+            Date currentDate = new Date();
+
+            // LOGIC CHECK:
+            // If bookingDate is 2026-05-15 and today is 2026-05-01, this returns TRUE.
+            return bookingDate != null && bookingDate.after(currentDate);
+
         } catch (Exception e) {
+            // If it hits here, the date format in Firebase doesn't match "yyyy-MM-dd"
+            e.printStackTrace();
             return false;
         }
     }
@@ -76,17 +91,15 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                 .setTitle("Cancel Booking")
                 .setMessage("Are you sure you want to cancel this booking?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    // 1. Get current User ID
+                    // curr user id
                     String userId = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                    // 2. Point to the specific bookingId in Firebase
                     com.google.firebase.database.FirebaseDatabase.getInstance().getReference("bookings")
                             .child(userId)
                             .child(booking.bookingId)
-                            .removeValue() // 3. The Firebase Delete command
+                            .removeValue() //firebase Delete command
                             .addOnSuccessListener(aVoid -> {
-                                // RecyclerView updates automatically if you use addValueEventListener in the Fragment,
-                                // but manual removal is safer for immediate UI feedback.
+
                                 Toast.makeText(context, "Booking Cancelled Successfully", Toast.LENGTH_SHORT).show();
                             })
                             .addOnFailureListener(e -> {
@@ -102,8 +115,6 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         return bookingList.size();
     }
 
-    // Fixed: Removed 'static' to allow access to non-static fields if needed,
-    // and ensured it extends the correct ViewHolder
     public class BookingViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvDate, tvTickets;
         ImageButton btnCancel;

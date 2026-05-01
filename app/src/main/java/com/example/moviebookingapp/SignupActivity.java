@@ -35,7 +35,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (pass.length() < 6) { // Note: Firebase requires at least 6 characters
+        if (pass.length() < 6) { // atleast 6 characters
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -44,14 +44,12 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        // FIREBASE SIGNUP
         com.google.firebase.auth.FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, pass)
                 .addOnSuccessListener(authResult -> {
-                    // Successfully registered in Firebase!
+
                     Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                    // Redirect to MainActivity or Login
                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                     finish();
                 })
