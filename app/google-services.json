@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "735902089267",
+    "firebase_url": "https://moviebookingappcinefastlhr-default-rtdb.firebaseio.com",
+    "project_id": "moviebookingappcinefastlhr",
+    "storage_bucket": "moviebookingappcinefastlhr.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735902089267:android:391d3e6b5ffdafb946e346",
+        "android_client_info": {
+          "package_name": "com.example.moviebookingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5BVoAuoNzP0330CVsADR4EiGG1a9zXGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

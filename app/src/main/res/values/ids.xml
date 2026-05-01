@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="etEmail" type="id" />
+    <item name="etPassword" type="id" />
+    <item name="cbRemember" type="id" />
+    <item name="btnLogin" type="id" />
+    <item name="tvSignup" type="id" />
+</resources>

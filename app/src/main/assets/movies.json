@@ -1,0 +1,24 @@
+{
+  "now_showing": [
+    {
+      "name": "Dark Knight",
+      "genre": "Action",
+      "imageName": "movie_poster_1",
+      "trailerUrl": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+    },
+    {
+      "name": "Inception",
+      "genre": "Sci-Fi",
+      "imageName": "movie_poster_2",
+      "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+    }
+  ],
+  "coming_soon": [
+    {
+      "name": "Interstellar",
+      "genre": "Sci-Fi",
+      "imageName": "movie_poster_3",
+      "trailerUrl": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+    }
+  ]
+}

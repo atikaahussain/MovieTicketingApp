@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CineFAST</string>
+    <string name="onboarding_title">Explore now\nto different experiences of moveies</string>
+    <string name="onboarding_description">this is cinefast app made with java as an assignmet for course software mobile designing </string>
+    <string name="get_started">Get Started</string>
+    <string name="select_date">Select Date</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="now_showing">Now Showing</string>
+    <string name="book_seats">Book Seats</string>
+    <string name="movie_dark_knight">The Dark Knight</string>
+    <string name="movie_inception">Inception</string>
+    <string name="movie_interstellar">Interstellar</string>
+    <string name="movie_shawshank">The Shawshank Redemption</string>
+    <string name="seat_selection_title">Select Seats</string>
+    <string name="screen_text">Screen</string>
+    <string name="proceed_to_snacks">Proceed to Snacks</string>
+    <string name="skip_snacks">Book Seats</string>
+    <string name="total_amount">TOTAL</string>
+    <string name="snacks_title">Snacks &amp; Drinks</string>
+    <string name="select_items">Select Items</string>
+    <string name="confirm">Confirm</string>
+    <string name="popcorn">Popcorn</string>
+    <string name="nachos">Nachos</string>
+    <string name="soft_drink">Soft Drink</string>
+    <string name="candy_mix">Candy Mix</string>
+    <string name="hot_dog">Hot Dog</string>
+    <string name="booking_details">Booking Details</string>
+    <string name="tickets">Tickets</string>
+    <string name="snacks">Snacks</string>
+    <string name="total">TOTAL</string>
+    <string name="send_ticket">Send Ticket</string>
+    <string name="select_seat_first">Please select at least one seat</string>
+    <string name="booking_confirmed">Booking Confirmed!</string>
+    <string name="share_ticket">Share Ticket</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="watch_trailer">Watch Trailer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>
